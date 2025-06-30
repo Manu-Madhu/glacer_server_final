@@ -23,7 +23,7 @@ productRouter.get('/variations/:variationId', getOneVariationCtrl)
 productRouter.get('/all', authMiddleware, roleChecker(['admin']), getAllProductsCtrl);
 productRouter.get('/many', getManyProductsCtrl);
 productRouter.get('/:id', getProductByIdCtrl);
-productRouter.get('/:slug', getProductBySlugIdCtrl);
+productRouter.get('/slug/:slug', getProductBySlugIdCtrl);
 
 productRouter.use(authMiddleware)
 productRouter.use(roleChecker(['admin']))
