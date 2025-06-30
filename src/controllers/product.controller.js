@@ -246,7 +246,6 @@ export const getProductBySlugIdCtrl = async (req, res) => {
     }
 }
 
-
 export const getManyProductsCtrl = async (req, res, next) => {
     try {
         let { page, entries } = req.query;
@@ -309,7 +308,6 @@ export const getManyProductsCtrl = async (req, res, next) => {
         })
     }
 }
-
 
 export const getAllProductsCtrl = async (req, res, next) => {
     try {
@@ -405,7 +403,6 @@ export const getAllProductsCtrl = async (req, res, next) => {
         })
     }
 }
-
 
 export const createVariationCtrl = async (req, res) => {
     try {
