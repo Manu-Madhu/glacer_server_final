@@ -1,6 +1,7 @@
 import { isValidObjectId } from "mongoose";
 import {
     createOption, createProduct, createVariation, deleteOption, deleteVariation, getAllProducts, getManyOption, getManyProducts, getManyVariation, getOneOption, getOneVariation, getProductById,
+    getProductBySlug,
     getProductCount,
     getProductStock, updateOption, updateProduct,
     updateProductStatus,
@@ -212,7 +213,7 @@ export const getProductBySlugIdCtrl = async (req, res) => {
     try {
         const { slug } = req.params;
 
-        const product = await getProductById(slug)
+        const product = await getProductBySlug(slug)
 
         if (!product) {
             return res.status(404).json({
