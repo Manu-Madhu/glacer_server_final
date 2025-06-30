@@ -16,7 +16,7 @@ const ProductSchema = new Schema(
     seo: {
       title: { type: String, required: true },
       description: { type: String },
-      keywords: [{ type: String }]
+      keywords: { type: String }
     },
     description: {
       type: String
