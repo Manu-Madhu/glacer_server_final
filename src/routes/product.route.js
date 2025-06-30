@@ -4,6 +4,7 @@ import { productValidator } from "../validators/product.validator.js";
 import { createOptionCtrl, createProductCtrl, createVariationCtrl, deleteOptionCtrl, 
     deleteVariationCtrl, getAllProductsCtrl, getManyOptionCtrl, getManyProductsCtrl, 
     getManyVariationCtrl, getOneOptionCtrl, getOneVariationCtrl, getProductByIdCtrl, 
+    getProductBySlugIdCtrl, 
     updateOptionCtrl, updateProductCtrl, updateProductStatusCtrl, updateVariationCtrl 
 } from "../controllers/product.controller.js";
 import { authMiddleware } from "../middlewares/auth.middleware.js";
@@ -22,6 +23,7 @@ productRouter.get('/variations/:variationId', getOneVariationCtrl)
 productRouter.get('/all', authMiddleware, roleChecker(['admin']), getAllProductsCtrl);
 productRouter.get('/many', getManyProductsCtrl);
 productRouter.get('/:id', getProductByIdCtrl);
+productRouter.get('/:slug', getProductBySlugIdCtrl);
 
 productRouter.use(authMiddleware)
 productRouter.use(roleChecker(['admin']))

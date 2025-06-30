@@ -12,6 +12,12 @@ export const getProductById = async (id) => {
         .populate("variantItems.specs.optionId", "value")
         .lean()
 }
+export const getProductBySlug = async (slug) => {
+    return await Product.findOne({ slug })
+        .populate("variantItems.specs.variationId", "name")
+        .populate("variantItems.specs.optionId", "value")
+        .lean()
+}
 
 export const getManyProducts = async (filters = {}, project = {}) => {
     return await Product.find(filters, project)

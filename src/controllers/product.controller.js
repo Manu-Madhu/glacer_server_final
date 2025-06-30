@@ -208,7 +208,40 @@ export const getProductByIdCtrl = async (req, res) => {
         })
     }
 }
+export const getProductBySlugIdCtrl = async (req, res) => {
+    try {
+        const { slug } = req.params;
 
+        const product = await getProductById(slug)
+
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                message: 'Not found',
+                data: null,
+                error: 'PRODUCT_NOT_FOUND'
+            })
+        }
+
+        const productStock = await getProductStock(id)
+
+        return res.status(200).json({
+            success: true,
+            message: 'success',
+            data: { result: { ...product, stock: productStock } },
+            error: null
+        })
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({
+            success: false,
+            message: "Internal Server error",
+            data: null,
+            error: 'INTERNAL_SERVER_ERROR'
+        })
+    }
+}
 
 
 export const getManyProductsCtrl = async (req, res, next) => {
