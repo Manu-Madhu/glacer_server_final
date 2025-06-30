@@ -211,11 +211,9 @@ export const getProductByIdCtrl = async (req, res) => {
 }
 export const getProductBySlugIdCtrl = async (req, res) => {
 
-    console.log('i am here from main')
     try {
         const { slug } = req.params;
 
-        console.log(slug," iam slug")
 
         const product = await getProductBySlug(slug)
 
